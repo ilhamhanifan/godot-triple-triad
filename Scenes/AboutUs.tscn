@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://oldAssets/ingame_screen.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/fonts/Sono-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 17
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Assets/fonts/Jersey M54.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 37
+font_data = SubResource( 3 )
+
+[node name="AboutUs" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 400, 300 )
+texture = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 43.0
+margin_top = 37.0
+margin_right = 761.0
+margin_bottom = 508.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "
+How to Play
+
+Each player is given 5 cards and must place one card on the board each turn.
+
+There are 4 sides of a card with attack points (AP). 
+
+If a card placed by a player is adjacent to another card with lower AP on one side, then the other card is flipped to match the player's color
+
+Points is determined by the number of cards assigned to a player's color 
+
+Player with the most points is the winner
+
+
+About us
+
+Gardena Citra Puspita - 52419567 - Art Design
+Muhammad Fata Nuryanto - 54419164 - Concept, Art
+Muhammad Ilham Hanifan  - 54419229 - Coder
+"
+
+[node name="GoBack" type="Button" parent="."]
+margin_left = 194.0
+margin_top = 508.0
+margin_right = 390.0
+margin_bottom = 566.0
+rect_pivot_offset = Vector2( 257, 10 )
+custom_fonts/font = SubResource( 4 )
+text = "Go Back"
+
+[node name="Play Game" type="Button" parent="."]
+margin_left = 413.0
+margin_top = 508.0
+margin_right = 609.0
+margin_bottom = 566.0
+rect_pivot_offset = Vector2( 257, 10 )
+custom_fonts/font = SubResource( 4 )
+text = "Play"
+
+[connection signal="pressed" from="GoBack" to="." method="_on_GoBack_pressed"]
+[connection signal="pressed" from="Play Game" to="." method="_on_Play_Game_pressed"]

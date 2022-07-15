@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/TripleTriad.gd" type="Script" id=1]
+[ext_resource path="res://oldAssets/ingame_screen.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/fonts/Jersey M54.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Assets/fonts/Jersey M54.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 26
+font_data = SubResource( 3 )
+
+[node name="TripleTriad" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 400, 300 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 2 )
+
+[node name="restartButton" type="Button" parent="."]
+margin_left = 219.0
+margin_top = 550.0
+margin_right = 336.0
+margin_bottom = 593.0
+custom_fonts/font = SubResource( 2 )
+text = "restart"
+
+[node name="menuButton" type="Button" parent="."]
+margin_left = 338.0
+margin_top = 550.0
+margin_right = 455.0
+margin_bottom = 593.0
+custom_fonts/font = SubResource( 2 )
+text = "MAIN MENU"
+
+[node name="quitButton" type="Button" parent="."]
+margin_left = 457.0
+margin_top = 550.0
+margin_right = 574.0
+margin_bottom = 593.0
+custom_fonts/font = SubResource( 2 )
+text = "QUIT"
+
+[node name="Status" type="Label" parent="."]
+margin_left = 219.0
+margin_top = 10.0
+margin_right = 574.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 4 )
+text = "PLAYER 1 GO FIRST"
+align = 1
+valign = 1
+
+[connection signal="cardHover" from="." to="." method="_on_TripleTriad_cardHover"]
+[connection signal="cardSelected" from="." to="." method="_on_TripleTriad_cardSelected"]
+[connection signal="endgame" from="." to="." method="_on_TripleTriad_endgame"]
+[connection signal="pressed" from="restartButton" to="." method="_on_restartButton_pressed"]
+[connection signal="pressed" from="menuButton" to="." method="_on_menuButton_pressed"]
+[connection signal="pressed" from="quitButton" to="." method="_on_quitButton_pressed"]
